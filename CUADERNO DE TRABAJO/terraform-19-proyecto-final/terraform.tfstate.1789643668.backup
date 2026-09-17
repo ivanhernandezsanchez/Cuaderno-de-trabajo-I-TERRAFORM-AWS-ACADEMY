@@ -1,0 +1,247 @@
+{
+  "version": 4,
+  "terraform_version": "1.16.2",
+  "serial": 10,
+  "lineage": "fcdcc9ae-fdbe-667c-cd98-79d2a1276bb2",
+  "outputs": {
+    "vpc_id": {
+      "value": "vpc-03eaea5be8ee4c0c5",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_internet_gateway",
+      "name": "gw_existente",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:643899756212:internet-gateway/igw-08be48d22d8ac0b9c",
+            "attachments": [
+              {
+                "state": "available",
+                "vpc_id": "vpc-03eaea5be8ee4c0c5"
+              }
+            ],
+            "filter": [
+              {
+                "name": "attachment.vpc-id",
+                "values": [
+                  "vpc-03eaea5be8ee4c0c5"
+                ]
+              }
+            ],
+            "id": "igw-08be48d22d8ac0b9c",
+            "internet_gateway_id": "igw-08be48d22d8ac0b9c",
+            "owner_id": "643899756212",
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "aws_vpc",
+      "name": "vpc_principal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:643899756212:vpc/vpc-03eaea5be8ee4c0c5",
+            "cidr_block": "172.31.0.0/16",
+            "cidr_block_associations": [
+              {
+                "association_id": "vpc-cidr-assoc-061f77acb2e912545",
+                "cidr_block": "172.31.0.0/16",
+                "state": "associated"
+              }
+            ],
+            "default": true,
+            "dhcp_options_id": "dopt-0ac6e2a7c3340236b",
+            "enable_dns_hostnames": true,
+            "enable_dns_support": true,
+            "enable_network_address_usage_metrics": false,
+            "filter": null,
+            "id": "vpc-03eaea5be8ee4c0c5",
+            "instance_tenancy": "default",
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "main_route_table_id": "rtb-0ad90e1db7642f9ed",
+            "owner_id": "643899756212",
+            "state": null,
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "publica_rt",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:643899756212:route-table/rtb-01320350f1adea59a",
+            "id": "rtb-01320350f1adea59a",
+            "owner_id": "643899756212",
+            "propagating_vgws": [],
+            "route": [
+              {
+                "carrier_gateway_id": "",
+                "cidr_block": "0.0.0.0/0",
+                "core_network_arn": "",
+                "destination_prefix_list_id": "",
+                "egress_only_gateway_id": "",
+                "gateway_id": "igw-08be48d22d8ac0b9c",
+                "ipv6_cidr_block": "",
+                "local_gateway_id": "",
+                "nat_gateway_id": "",
+                "network_interface_id": "",
+                "transit_gateway_id": "",
+                "vpc_endpoint_id": "",
+                "vpc_peering_connection_id": ""
+              }
+            ],
+            "tags": {
+              "Name": "vpc-test-ivan-990-publica-rt"
+            },
+            "tags_all": {
+              "Name": "vpc-test-ivan-990-publica-rt"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-03eaea5be8ee4c0c5"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwLCJ1cGRhdGUiOjEyMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.aws_internet_gateway.gw_existente",
+            "data.aws_vpc.vpc_principal"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "bucket_aula",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "status": "tainted",
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::ivan-terraform-ejercicio-03-8ufiei",
+            "bucket": "ivan-terraform-ejercicio-03-8ufiei",
+            "bucket_domain_name": "ivan-terraform-ejercicio-03-8ufiei.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": null,
+            "cors_rule": [],
+            "force_destroy": true,
+            "grant": [
+              {
+                "id": "acecda1bb8a8ee1ccbc27258b7525776ccd7b912f3da3ef5c73db3dad9954106",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": null,
+            "id": "ivan-terraform-ejercicio-03-8ufiei",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": null,
+            "object_lock_enabled": null,
+            "policy": "",
+            "region": null,
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Name": "vpc-test-ivan-990-bucket"
+            },
+            "tags_all": {
+              "Name": "vpc-test-ivan-990-bucket"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": false,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "random_string.suffix"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_string",
+      "name": "suffix",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "id": "8ufiei",
+            "keepers": null,
+            "length": 6,
+            "lower": true,
+            "min_lower": 0,
+            "min_numeric": 0,
+            "min_special": 0,
+            "min_upper": 0,
+            "number": true,
+            "numeric": true,
+            "override_special": null,
+            "result": "8ufiei",
+            "special": false,
+            "upper": false
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

@@ -1,0 +1,5 @@
+vpc_cidr            = "172.31.0.0/16"
+subnet_publica_cidr = "172.31.100.0/24"
+subnet_privada_cidr = "172.31.101.0/24"
+region              = "us-east-1"
+nombre_proyecto     = "vpc-test-ivan-990"
